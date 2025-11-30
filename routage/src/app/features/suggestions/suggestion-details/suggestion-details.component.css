@@ -1,0 +1,66 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.suggestion-details p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.status-accepte {
+  color: green;
+  font-weight: bold;
+}
+
+.status-refuse {
+  color: red;
+  font-weight: bold;
+}
+
+.status-attente {
+  color: orange;
+  font-weight: bold;
+}
+
+.btn-like, .btn-favorite, .btn-back {
+  margin: 5px 5px 0 0;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-like {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-like:hover {
+  background-color: #218838;
+}
+
+.btn-favorite {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.btn-favorite:hover {
+  background-color: #e0a800;
+}
+
+.btn-back {
+  background-color: #007bff;
+  color: white;
+  margin-top: 20px;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}
