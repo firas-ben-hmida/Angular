@@ -1,0 +1,39 @@
+<div class="container" *ngIf="suggestion">
+  <h1 class="page-title">{{ suggestion.title }}</h1>
+
+  <div class="suggestion-details">
+    <p><strong>Catégorie:</strong> {{ suggestion.category }}</p>
+    <p><strong>Date:</strong> {{ suggestion.date | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Description:</strong> {{ suggestion.description }}</p>
+    <p><strong>Status:</strong> 
+      <span [ngClass]="{
+        'status-accepte': suggestion.status === 'acceptee',
+        'status-refuse': suggestion.status === 'refusee',
+        'status-attente': suggestion.status === 'en_attente'
+      }">
+        {{ suggestion.status }}
+      </span>
+    </p>
+    <p><strong>Likes:</strong> {{ suggestion.likes }}</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn-like" (click)="incrementLikes()">
+      👍 Like
+    </button>
+    <button class="btn-favorite" (click)="addToFavorites()">
+      {{ isFavorite() ? '⭐ Déjà en favoris' : '🤍 Ajouter aux favoris' }}
+    </button>
+  </div>
+
+  <div class="navigation-buttons">
+  <button class="btn-back" (click)="goBack()">⬅ Retour à la liste</button>
+  <button class="btn-next" (click)="goNext()">➡ Suivant</button>
+</div>
+
+</div>
+
+<div *ngIf="!suggestion">
+  <p>Suggestion introuvable.</p>
+  <button class="btn-back" (click)="goBack()">⬅ Retour à la liste</button>
+</div>

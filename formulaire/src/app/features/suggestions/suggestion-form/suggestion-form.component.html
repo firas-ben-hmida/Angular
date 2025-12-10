@@ -1,0 +1,52 @@
+<div class="card p-4">
+  <form [formGroup]="suggestionForm" (ngSubmit)="onSubmit()">
+
+    <!-- Titre -->
+    <div class="mb-3">
+      <label for="title">Titre :</label>
+      <input id="title" type="text" class="form-control" formControlName="title">
+      <div *ngIf="title.touched && title.invalid" class="text-danger mt-1">
+        <div *ngIf="title.errors?.['required']">Le titre est obligatoire.</div>
+        <div *ngIf="title.errors?.['minlength']">Minimum 5 caractères.</div>
+        <div *ngIf="title.errors?.['pattern']">Doit commencer par une majuscule et ne contenir que des lettres.</div>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description">Description :</label>
+      <textarea id="description" class="form-control" formControlName="description"></textarea>
+      <div *ngIf="description.touched && description.invalid" class="text-danger mt-1">
+        <div *ngIf="description.errors?.['required']">La description est obligatoire.</div>
+        <div *ngIf="description.errors?.['minlength']">Minimum 30 caractères.</div>
+      </div>
+    </div>
+
+    <!-- Catégorie -->
+    <div class="mb-3">
+      <label for="category">Catégorie :</label>
+      <select id="category" class="form-select" formControlName="category">
+        <option value="">-- Sélectionnez une catégorie --</option>
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+      <div *ngIf="category.touched && category.invalid" class="text-danger mt-1">
+        <div>La catégorie est obligatoire.</div>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3">
+      <label for="date">Date :</label>
+      <input id="date" type="text" class="form-control" formControlName="date" readonly>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label for="status">Status :</label>
+      <input id="status" type="text" class="form-control" formControlName="status" readonly>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary" [disabled]="suggestionForm.invalid">Soumettre</button>
+  </form>
+</div>
